@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "git clone --depth 1 https://github.com/traccar/traccar-web",
     "build": "cp -vr src traccar-web && cd traccar-web && npm install && npm run build",
+    "postbuild": "cp -vr index.html traccar-web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
