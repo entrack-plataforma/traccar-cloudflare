@@ -7,6 +7,7 @@ import { formatTime, getStatusColor } from '../common/util/formatter';
 import { mapIconKey } from './core/preloadImages';
 import { useAttributePreference } from '../common/util/preferences';
 import { useCatchCallback } from '../reactHelper';
+import {icons} from "./core/icons3d";
 
 const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleField }) => {
   const id = useId();
@@ -44,7 +45,7 @@ const MapPositions = ({ positions, onClick, showStatus, selectedPosition, titleF
       fixTime: formatTime(position.fixTime, 'seconds'),
       category: mapIconKey(device.category),
       color: showStatus ? position.attributes.color || getStatusColor(device.status) : 'neutral',
-      rotation: position.course % 22.5,
+      rotation: icons[mapIconKey(device.category)] ? position.course % 22.5 : position.course,
       course: position.course,
       direction: showDirection,
     };
