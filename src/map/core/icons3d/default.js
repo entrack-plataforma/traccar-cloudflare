@@ -1,3 +1,5 @@
+import {getSVG} from "./index";
+
 const path = {
     0: (c, p, t) => `
         <defs><style>.cls-1{fill:none;}.cls-2{opacity:0.3;}.cls-3{fill:${c};}.cls-4{fill:${p};}.cls-5{fill:${t};}.cls-6{fill:#232323;}</style></defs>
@@ -68,7 +70,7 @@ const path = {
 
 
 export default (degrees, color, palette) => {
-    return path[Math.floor(Math.floor(degrees / 22.5) * 22.5)](
+    return getSVG(path[Math.floor(Math.floor(degrees / 22.5) * 22.5)](
         palette[color].main, '#353535', '#FF3637', '#F39C12'
-    )
+    ))
 }

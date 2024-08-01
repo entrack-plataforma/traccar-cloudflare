@@ -1,17 +1,19 @@
-import defaultIcon from './default'
+import car from './default'
+import truck from './truck'
 import {loadImage, prepareIcon} from "../mapUtil.js";
 import {map} from "../MapView.jsx";
 import {mapIcons} from "../preloadImages";
 import backgroundSvg from "../../../resources/images/background.svg";
 
-
 export const icons = {
-    default: defaultIcon
+    default: car,
+    car,
+    truck
 }
 
-function getSVG(iconPath) {
+export function getSVG(iconPath, height=50, width=50, viewBox="0 0 50 50") {
     return `
-        <svg preserveaspectratio="none" height="50" width="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">            
+        <svg preserveaspectratio="none" height="${height}" width="${width}" viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">            
             ${iconPath}
         </svg>
     `
@@ -30,8 +32,7 @@ export default async (e, mapPalette) => {
 
     let image
     if (icons[category]) {
-        const iconPath = icons[category](rotation, color, mapPalette);
-        const svg = getSVG(iconPath)
+        const svg = icons[category](rotation, color, mapPalette);
         const svgBlob = new Blob([svg], {type: 'image/svg+xml;charset=utf-8'});
         image = await loadImage(URL.createObjectURL(svgBlob)).then(icon =>
             prepareIcon(icon))
