@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "git clone --depth 1 https://github.com/traccar/traccar-web || true",
-    "build": "cp -vr *.js src public index.html traccar-web && cd traccar-web && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.sh",
+    "prebuild-ios": "./build.sh",
+    "build-ios": "./build-ios.sh"
   },
   "repository": {
     "type": "git",
