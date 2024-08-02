@@ -1,6 +1,6 @@
 git clone --depth 1 https://github.com/traccar/traccar-web || true
 rm -rf traccar-web/.git
-cp -v capacitor.config.ts traccar-web
+cp -v capacitor.config.ts *.js src public index.html traccar-web
 cp -vr src traccar-web
 {
   echo "import './capacitor.js';"
