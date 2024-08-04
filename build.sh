@@ -1,4 +1,4 @@
-git clone --depth 1 https://github.com/traccar/traccar-web || true
+git clone --depth 1 https://github.com/jcardus/traccar-web || true
 rm -rf traccar-web/.git
 cp -vr capacitor.config.ts *.js src public index.html traccar-web
 cp -vr src traccar-web
