@@ -24,5 +24,5 @@ jobs:
           echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > /home/runner/keystore
           echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_PLAY_STORE }}" > google-secret.json
           echo '${{ secrets.GOOGLE_CLOUD_AUTH }}' >> gc_keys.json
-          fastlane beta
+          fastlane android beta
         working-directory: traccar-web/android
