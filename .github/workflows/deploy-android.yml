@@ -14,7 +14,7 @@ permissions:
   id-token: write
 
 jobs:
-  build_ios:
+  build_android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

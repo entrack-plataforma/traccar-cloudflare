@@ -7,5 +7,5 @@ cp -vr src traccar-web
   cat traccar-web/src/index.jsx
 } > temp && mv temp traccar-web/src/index.jsx
 cd traccar-web || exit
-npm install -D @capacitor/assets @capacitor/cli @capacitor/core @capacitor/ios typescript
+npm install -D @capacitor/assets @capacitor/cli @capacitor/core @capacitor/ios @capacitor/android typescript
 npm run build
