@@ -1,0 +1,28 @@
+name: deploy to appstore
+on:
+  push:
+    branches:
+      - main
+
+env:
+  VITE_TRACCAR_SERVER: ${{ vars.VITE_TRACCAR_SERVER }}
+  APP_ID: ${{ vars.APP_ID }}
+  APP_NAME: ${{ vars.APP_NAME }}
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build_ios:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm run build-android
+      - run: |
+          echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > /home/runner/keystore
+          echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_PLAY_STORE }}" | base64 --decode > google-secret.json
+          echo '${{ secrets.GOOGLE_CLOUD_AUTH }}' >> gc_keys.json
+          fastlane beta
+        working-directory: traccar-web/android

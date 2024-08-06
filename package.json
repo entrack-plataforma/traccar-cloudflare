@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./build.sh",
     "prebuild-ios": "./build.sh",
-    "build-ios": "./build-ios.sh"
+    "build-ios": "./build-ios.sh",
+    "prebuild-android": "./build.sh",
+    "build-android": "./build-android.sh"
   },
   "repository": {
     "type": "git",
