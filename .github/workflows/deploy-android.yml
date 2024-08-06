@@ -1,4 +1,4 @@
-name: deploy to appstore
+name: deploy to playstore
 on:
   push:
     branches:
