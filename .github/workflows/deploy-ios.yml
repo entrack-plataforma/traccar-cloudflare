@@ -2,7 +2,7 @@ name: deploy to appstore
 on:
   push:
     branches:
-      - main
+      - ios
 
 env:
   APPLE_ID: ${{ vars.APPLE_ID }}
