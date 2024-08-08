@@ -27,7 +27,7 @@ jobs:
           java-version: '17'
       - run: |
           echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > /home/runner/keystore
-          echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_PLAY_STORE }}" > google-secret.json
+          printf "%s" "${{ secrets.GOOGLE_SERVICE_ACCOUNT_PLAY_STORE }}" > google-secret.json
           echo '${{ secrets.GOOGLE_CLOUD_AUTH }}' >> gc_keys.json
           mkdir public
           cp -v *.json public
