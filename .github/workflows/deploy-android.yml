@@ -32,6 +32,7 @@ jobs:
           mkdir public
           cp -v *.json public
         working-directory: traccar-web/android
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'traccar-web/android/public'
