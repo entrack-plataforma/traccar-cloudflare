@@ -31,6 +31,7 @@ jobs:
           echo '${{ secrets.GOOGLE_CLOUD_AUTH }}' >> gc_keys.json
           mkdir public
           cp -v *.json public
+          fastlane android beta
         working-directory: traccar-web/android
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
