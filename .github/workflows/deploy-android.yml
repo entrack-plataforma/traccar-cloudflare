@@ -8,6 +8,7 @@ env:
   VITE_TRACCAR_SERVER: ${{ vars.VITE_TRACCAR_SERVER }}
   APP_ID: ${{ vars.APP_ID }}
   APP_NAME: ${{ vars.APP_NAME }}
+  APP_IDENTIFIER: ${{ vars.APP_IDENTIFIER }}
 
 permissions:
   contents: read
