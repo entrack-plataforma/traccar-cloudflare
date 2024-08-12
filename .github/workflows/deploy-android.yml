@@ -21,7 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - run: npm run build-android
       - uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
@@ -30,9 +29,10 @@ jobs:
         with:
           ruby-version: '3.3' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - run: npm run build-android
       - run: |
           echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > /home/runner/keystore
           echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_PLAY_STORE }}" | base64 --decode > google-secret.json
           echo '${{ secrets.GOOGLE_CLOUD_AUTH }}' > gc_keys.json
-          fastlane android beta
+          bundle exec fastlane android beta
         working-directory: traccar-web/android
