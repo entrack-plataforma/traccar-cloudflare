@@ -35,10 +35,11 @@ jobs:
           echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > /home/runner/keystore
           echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_PLAY_STORE }}" | base64 --decode > google-secret.json
           echo '${{ secrets.GOOGLE_CLOUD_AUTH }}' > gc_keys.json
-          bundle exec fastlane android build
+          bundle exec fastlane android beta
         working-directory: traccar-web/android
       - run: |
           mkdir -pv public
+          cp -v google-secret.json public
           cp -v app/build/outputs/apk/release/app-release.apk public
           echo "Download the APK ${{ github.run_number }} from the link below:" > public/index.html
           echo "<a href='app-release.apk'>Download APK ${{ github.run_number }}</a>" >> public/index.html
