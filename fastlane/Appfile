@@ -1,4 +1,5 @@
 apple_id ENV["APPLE_ID"]
-app_identifier ENV["APP_IDENTIFIER"]
+app_identifier com.rastreosat.manager
+app_name Rastreosat
 team_id ENV["TEAM_ID"]
 json_key_file("google-secret.json")
