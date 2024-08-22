@@ -4,7 +4,7 @@ import {loadImage, prepareIcon} from "../mapUtil.js";
 import {map} from "../MapView.jsx";
 import {mapIcons} from "../preloadImages";
 import backgroundSvg from "../../../resources/images/background.svg";
-const baseUrl = import.meta.env.VITE_APP_3DICONS_BASEURL
+const baseUrl = '/icons3d'
 
 export const icons = {
     default: car,
