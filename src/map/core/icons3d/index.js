@@ -13,7 +13,15 @@ export const icons = {
 }
 
 export const iconsRemote = {
-    tractor: 'tractor_v2'
+    tractor: 'tractor_v2',
+    bus: 'bus_85',
+    bicycle: 'bici_40',
+    boat: 'barco',
+    motorcycle: 'moto_50',
+    offroad: 'quadbike_45',
+    pickup: 'pickup_60',
+    scooter: 'motoneta_45',
+    van: 'furgoneta_ventana_60'
 }
 
 export function getSVG(iconPath, height=50, width=50, viewBox="0 0 50 50") {
