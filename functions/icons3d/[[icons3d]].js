@@ -6,14 +6,23 @@ export async function onRequest({ request, env }) {
 
     const newRequest = new Request(rewrittenUrl, request);
 
-    const response = await fetch(newRequest);
+    const cache = caches.default;
+    let response = await cache.match(newRequest);
 
-    const headers = new Headers(response.headers);
-    headers.set('Cache-Control', 'max-age=31536000, public, immutable');
+    if (!response) {
+        // If not in cache, fetch from the origin
+        response = await fetch(newRequest);
+        const headers = new Headers(response.headers);
+        headers.set('Cache-Control', 'max-age=31536000, public, immutable');
 
-    return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers,
-    });
+        response = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers,
+        });
+        await cache.put(newRequest, response.clone());
+    }
+
+    return response
+
 }
