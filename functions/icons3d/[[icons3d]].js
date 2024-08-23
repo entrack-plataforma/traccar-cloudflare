@@ -10,7 +10,7 @@ export async function onRequest({ request, env }) {
     let response = await cache.match(newRequest);
 
     if (!response) {
-        // If not in cache, fetch from the origin
+        console.log('cache miss', rewrittenUrl)
         response = await fetch(newRequest);
         const headers = new Headers(response.headers);
         headers.set('Cache-Control', 'max-age=31536000, public, immutable');
@@ -21,6 +21,8 @@ export async function onRequest({ request, env }) {
             headers,
         });
         await cache.put(newRequest, response.clone());
+    } else {
+        console.log('cache hit', rewrittenUrl)
     }
 
     return response
