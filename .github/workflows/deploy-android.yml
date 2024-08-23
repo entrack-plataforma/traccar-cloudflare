@@ -50,7 +50,4 @@ jobs:
           path: 'traccar-web/android/public'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-      - run: |
-          bundle exec fastlane android beta
-        working-directory: traccar-web/android
+        uses: actions/deploy-pages@v4      
