@@ -53,10 +53,10 @@ platform :android do
                     }
         )
 
-    upload_to_play_store(track: 'internal')
+    
   end
 
   lane :beta do
-
+    upload_to_play_store(track: 'internal')
   end
 end
