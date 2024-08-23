@@ -42,8 +42,8 @@ platform :android do
 
 
     gradle(
-          task: 'bundle',
-          #task: 'assemble',
+          #task: 'bundle',
+          task: 'assemble',
           build_type: 'Release',
           properties: {
                       "android.injected.signing.store.file" => "/home/runner/keystore",
